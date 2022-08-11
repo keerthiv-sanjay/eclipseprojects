@@ -52,7 +52,6 @@ public class BaseClass {
 	@BeforeTest
 	public void setup(ITestContext context)
 	{
-	
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
 		 logger.info("opening chrome");
