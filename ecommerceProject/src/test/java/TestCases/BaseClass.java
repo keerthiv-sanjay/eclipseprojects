@@ -54,7 +54,7 @@ public class BaseClass {
 	{
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
-		 logger.info("opening chrome");
+		
 		 logger.info("opening chrome");
 		driver.get(rp.url());
 		driver.manage().window().maximize();		
