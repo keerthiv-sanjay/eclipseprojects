@@ -24,7 +24,7 @@ public class loginVerify extends BaseClass {
 	extentTest.log(Status.INFO,"Entering into home page");
 	String title = lp.title();
 	extentTest.log(Status.PASS,"Verifing Assertion");
-	AssertJUnit.assertEquals("My Account", title);
+	AssertJUnit.assertEquals("My Accoun", title);
 	
 	}
 }
