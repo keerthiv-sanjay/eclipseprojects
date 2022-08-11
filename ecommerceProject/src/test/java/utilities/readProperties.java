@@ -11,7 +11,7 @@ public class readProperties {
   Properties prop;
 	public readProperties() 
 	{
-		File file = new File("C:\\Users\\Admin\\eclipse-workspace\\ecommerceProject\\DataDriveFiles\\config.properties");
+		File file = new File("C:\\Users\\Admin\\git\\eclipseprojects\\ecommerceProject\\DataDriveFiles\\config.properties");
 		
 		prop =new Properties();
 		try {

@@ -25,6 +25,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import utilities.readProperties;
 public class BaseClass {
 	readProperties rp =new readProperties();
@@ -44,22 +45,20 @@ public class BaseClass {
 	public void extentreportINIT()
 	{
 	    extent = new ExtentReports();        //engine
-		ExtentSparkReporter spark = new ExtentSparkReporter("C:\\Users\\Admin\\eclipse-workspace\\ecomerseProject\\extReport.html");
+		ExtentSparkReporter spark = new ExtentSparkReporter("C:\\Users\\Admin\\git\\eclipseprojects\\ecommerceProject\\extReport.html");
         extent.attachReporter(spark);  //to attach extent object  with spark object(combine the above two lines)
 	}
 	
 	@BeforeTest
 	public void setup(ITestContext context)
 	{
-	if(true)
-		{
-		System.setProperty("webdriver.chrome.driver","C:\\Users\\Admin\\eclipse-workspace\\ecommerceProject\\drivers\\chromedriver.exe");
+	
+		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
 		 logger.info("opening chrome");
 		 logger.info("opening chrome");
 		driver.get(rp.url());
-		driver.manage().window().maximize();
-		}
+		driver.manage().window().maximize();		
 	extentTest=extent.createTest(context.getName());    //used to get test name from the testng.xml file             
 	System.out.println(context.getName());
 	}
@@ -76,7 +75,7 @@ public class BaseClass {
 	public void extentFlush() throws IOException
 	{
 		extent.flush();
-		Desktop.getDesktop().browse(new File("C:\\Users\\\\Admin\\eclipse-workspace\\ecomerseProject\\extReport.html").toURI());
+		Desktop.getDesktop().browse(new File("C:\\Users\\Admin\\git\\eclipseprojects\\ecommerceProject\\extReport.html").toURI());
 	}
 
 	
